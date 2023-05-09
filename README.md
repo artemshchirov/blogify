@@ -1,6 +1,6 @@
-# Connectify
+# Blogify
 
-Social Network
+It's a publishing platform, a blog with elements of a social network.
 
 ## Description
 
@@ -28,8 +28,8 @@ Social Network
 ### Clone the repository and navigate to it in the command line
 
 ```bash
-git clone https://github.com/artemshchirov/connectify.git
-cd connectify
+git clone https://github.com/artemshchirov/blogify.git
+cd blogify
 ```
 
 ### Install and activate the virtual environment
