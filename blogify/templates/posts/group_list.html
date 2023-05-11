@@ -4,59 +4,17 @@
 <div class="container py-5">
   <h1>Leo Tolstoy - a mirror of the Russian revolution.</h1>
   <p>A group of secret admirers of the count.</p>
+  {% for post in posts %}
   <article>
     <ul>
-      <li>Author: Leo Tolstoy</li>
-      <li>Publication Date: July 30, 1854</li>
+      <li>Автор: {{ post.author.get_full_name }}</li>
+      <li>Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
     </ul>
-    <p>
-      [Rymnik.] Rode to Rymnik on horseback. [[5]] The old man still doesn't bow
-      to me. Both of these things irritate me. Behaved well with the encountered
-      bashi-bazouks. Had a conversation with Kryzhanovsky. He, for reasons
-      unknown to me, advises me to be attached to the Cossack battery; advice I
-      won't follow. Argued bitterly in the evening with Frieda and Babarykin,
-      scolded Sergeputovsky, and accomplished nothing. These are the three
-      reproaches I have for myself for today. (3)
-    </p>
+    <p>{{ post.text }}</p>
+    <a href={% url 'posts:index' %}>все записи группы</a>
   </article>
+  {% if not forloop.last %}
   <hr />
-  <article>
-    <ul>
-      <li>Author: Leo Tolstoy</li>
-      <li>Publication Date: July 29, 1854</li>
-    </ul>
-    <p>
-      My correction is going splendidly. I feel how my relationships become
-      pleasant and easy with people of all kinds, ever since I decided to be
-      modest and convinced myself that it is not necessary to always appear
-      majestic and infallible. I am very cheerful. And may God grant, as it
-      seems to me, that this joy comes from within myself; from the desire to be
-      pleasant to everyone, from modesty, lack of offense, and attentiveness to
-      flashes. Then I would always be cheerful and almost always happy. In the
-      morning, I had decided to stay at home, work, but things didn't go well,
-      and I couldn't resist going out for a walk in the evening. On the way back
-      from dinner, Tishkevich and I stopped at the brothel and Kryzhanovsky
-      caught us, which, I admit, was not quite pleasant to me. I reproach myself
-      for being characterless, for not staying at home, and for the idleness of
-      the whole day. That is the main point. (2)
-    </p>
-  </article>
-  <hr />
-  <article>
-    <ul>
-      <li>Author: Leo Tolstoy</li>
-      <li>Publication Date: July 28, 1854</li>
-    </ul>
-    <p>
-      I am writing in the most pleasant and cheerful mood in which I spent the
-      entire evening. In the morning, I read, ate pears, and instead of lunch, I
-      had cheese. Despite the festivities of Stalypin and Sergeputovsky on the
-      occasion of receiving awards, I did not envy them and had a cheerful day.
-      In the evening, I took off my shoes and drank two glasses of champagne
-      with Schwartz, Veilerovsky, and Gambich, then chatted with Shubin and
-      Sasha Gorchakov. Excluding the indulgence, I am very pleased with my day.
-      (1)
-    </p>
-  </article>
+  {% endif %} {% endfor %}
 </div>
 {% endblock%}
