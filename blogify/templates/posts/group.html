@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block title %}
-<title>{{ title }}</title>
+<title>{{ group.title }}</title>
 {% endblock %} {% block content %}
 <div class="container py-5">
-  <h1>Latest Updates on the Website</h1>
+  <h1>{{ group.title }}</h1>
+  <p>{{ group.description }}</p>
   {% for post in posts %}
   <article>
     <ul>
@@ -10,12 +11,10 @@
       <li>Publication date: {{ post.pub_date|date:"d E Y" }}</li>
     </ul>
     <p>{{ post.text }}</p>
-    {% if post.group %}
-    <a href="{% url 'posts:group' post.group.slug %}">All group posts</a>
-    {% endif %}
   </article>
   {% if not forloop.last %}
   <hr />
   {% endif %} {% endfor %}
+  <a href="{% url 'posts:index' %}">Latest Updates on the Website</a>
 </div>
-{% endblock %}
+{% endblock%}
